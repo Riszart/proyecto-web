@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoSphere | Portal Informativo de Sostenibilidad y Futuro</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Header & Navbar -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform duration-200">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <span class="text-2xl font-extrabold tracking-tight text-slate-900">
+            Eco<span class="text-brand-600">Sphere</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+          <a href="#inicio" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-100 transition-colors">Inicio</a>
+          <a href="#articulos" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-100 transition-colors">Informes</a>
+          <a href="#indicadores" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-100 transition-colors">Datos Clave</a>
+          <a href="#calculadora" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-100 transition-colors">Calculadora</a>
+          <a href="#preguntas" class="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-100 transition-colors">Preguntas</a>
+        </nav>
+
+        <!-- CTA & Actions -->
+        <div class="hidden md:flex items-center gap-3">
+          <a href="#boletin" class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-md shadow-brand-600/25 transition-all duration-200 hover:-translate-y-0.5">
+            Suscribirme
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex md:hidden">
+          <button id="mobileMenuBtn" aria-label="Abrir menú" class="p-2.5 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500">
+            <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white/95 px-4 pt-3 pb-6 space-y-2 shadow-xl">
+      <a href="#inicio" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700 transition">Inicio</a>
+      <a href="#articulos" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700 transition">Informes & Artículos</a>
+      <a href="#indicadores" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700 transition">Datos Clave</a>
+      <a href="#calculadora" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700 transition">Calculadora</a>
+      <a href="#preguntas" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700 transition">Preguntas Frecuentes</a>
+      <div class="pt-3">
+        <a href="#boletin" class="mobile-nav-link block w-full text-center py-3 rounded-xl bg-brand-600 text-white font-semibold shadow-md">Suscribirme al boletín</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28 bg-gradient-to-b from-brand-50/50 via-white to-slate-50">
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-brand-200/40 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -right-32 w-96 h-96 bg-emerald-200/40 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Text Left Column -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 text-xs sm:text-sm font-semibold tracking-wide">
+            <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+            Reporte Global de Acción Climática 2026
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+            Conocimiento e impacto para un <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-teal-500">planeta sostenible</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+            Explora análisis rigurosos, guías prácticas sobre transición energética y soluciones de economía circular diseñadas para ciudadanos, profesionales y líderes del cambio.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+            <a href="#articulos" class="px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-center shadow-lg shadow-brand-600/30 transition duration-200 hover:-translate-y-0.5">
+              Explorar Artículos
+            </a>
+            <a href="#calculadora" class="px-7 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-semibold text-center transition duration-200">
+              Calcular Huella Diaria
+            </a>
+          </div>
+
+          <!-- Quick trust badges -->
+          <div class="pt-6 border-t border-slate-200/80 flex flex-wrap items-center justify-center lg:justify-start gap-8 text-slate-500 text-sm">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-brand-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Fuentes Verificadas</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-brand-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Acceso Abierto</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-brand-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Datos Actualizados</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual Card -->
+        <div class="lg:col-span-5">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <!-- Glassmorphism Container Card -->
+            <div class="rounded-3xl bg-white p-6 sm:p-8 shadow-2xl border border-slate-100 relative z-10 space-y-6">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div>
+                  <span class="text-xs uppercase font-bold tracking-wider text-brand-700">Índice Semanal</span>
+                  <h3 class="text-xl font-bold text-slate-800">Transición Energética</h3>
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+              </div>
+
+              <!-- Stat row 1 -->
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span class="text-slate-600 font-medium">Cuota Global Renovable</span>
+                  <span class="font-bold text-slate-900">34.8%</span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-brand-500 h-full rounded-full transition-all duration-1000" style="width: 35%"></div>
+                </div>
+              </div>
+
+              <!-- Stat row 2 -->
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span class="text-slate-600 font-medium">Reducción Emisiones Urbanas</span>
+                  <span class="font-bold text-slate-900">58.2%</span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-teal-500 h-full rounded-full transition-all duration-1000" style="width: 58%"></div>
+                </div>
+              </div>
+
+              <!-- Mini Featured Box -->
+              <div class="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-5 text-white">
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-brand-500/20 text-brand-300 border border-brand-500/30">Novedad</span>
+                  <span class="text-xs text-slate-400">Lectura de 4 min</span>
+                </div>
+                <h4 class="font-semibold text-sm leading-snug">Nuevas baterías de sodio: ¿El adiós definitivo al litio?</h4>
+                <a href="#articulos" class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-400 hover:text-brand-300 mt-3 transition-colors">
+                  Leer resumen <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </a>
+              </div>
+            </div>
+            <!-- Decorative outline -->
+            <div class="absolute -bottom-4 -right-4 w-full h-full rounded-3xl border-2 border-brand-300/60 -z-0"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats & Key Indicators Section -->
+  <section id="indicadores" class="py-16 bg-white border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-1">Métricas globales</h2>
+        <p class="text-3xl font-extrabold text-slate-900">Impacto en cifras verificables</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Stat 1 -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-brand-300 transition-all duration-300 group hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+          </div>
+          <p class="text-3xl font-black text-slate-900">+420 GW</p>
+          <p class="font-semibold text-slate-700 text-sm mt-1">Capacidad Solar Anual</p>
+          <p class="text-xs text-slate-500 mt-2">Nueva potencia instalada globalmente durante el último ejercicio.</p>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-brand-300 transition-all duration-300 group hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+          </div>
+          <p class="text-3xl font-black text-slate-900">-18%</p>
+          <p class="font-semibold text-slate-700 text-sm mt-1">Costos de Almacenamiento</p>
+          <p class="text-xs text-slate-500 mt-2">Reducción sostenida del coste de baterías para almacenamiento a gran escala.</p>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-brand-300 transition-all duration-300 group hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          </div>
+          <p class="text-3xl font-black text-slate-900">1,250+</p>
+          <p class="font-semibold text-slate-700 text-sm mt-1">Ciudades Bajas en Carbono</p>
+          <p class="text-xs text-slate-500 mt-2">Metrópolis con planes formales y metas de descarbonización activa.</p>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-brand-300 transition-all duration-300 group hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+          </div>
+          <p class="text-3xl font-black text-slate-900">45 M</p>
+          <p class="font-semibold text-slate-700 text-sm mt-1">Toneladas Recicladas</p>
+          <p class="text-xs text-slate-500 mt-2">Materiales reintegrados a cadenas productivas de economía circular.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Informational Articles Section with Interactive Filter and Search -->
+  <section id="articulos" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-600">Biblioteca Informativa</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">Artículos e Investigaciones</h2>
+          <p class="text-slate-600 mt-2 max-w-xl">Encuentra análisis actualizados, casos de estudio y guías prácticas clasificadas por áreas clave.</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="w-full md:w-80">
+          <div class="relative">
+            <input type="text" id="searchInput" placeholder="Buscar por tema o título..." class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-shadow shadow-sm">
+            <svg class="w-5 h-5 text-slate-400 absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories Filter Tabs -->
+      <div class="flex flex-wrap gap-2 mb-8" id="categoryFilters">
+        <button data-cat="all" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-brand-600 text-white shadow-sm transition">
+          Todos los temas
+        </button>
+        <button data-cat="energia" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition">
+          Energía Limpia
+        </button>
+        <button data-cat="circular" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition">
+          Economía Circular
+        </button>
+        <button data-cat="ciudad" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition">
+          Ciudades Resilientes
+        </button>
+        <button data-cat="biodiversidad" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition">
+          Biodiversidad
+        </button>
+      </div>
+
+      <!-- Articles Grid -->
+      <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <article class="article-card group bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col" data-category="energia" data-title="energias renovables eolica marina almacenamiento">
+          <div class="h-48 overflow-hidden relative bg-gradient-to-br from-cyan-900 to-blue-700 flex items-center justify-center p-6 text-white">
+            <svg class="w-20 h-20 text-white/30 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+            <span class="absolute top-4 left-4 bg-brand-500/90 text-white backdrop-blur-sm text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Energía Limpia</span>
+            <span class="absolute bottom-4 right-4 bg-black/40 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-md">6 min lectura</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center text-xs text-slate-500 gap-2 mb-2.5">
+                <span>Dra. Elena Ramos</span> • <span>Sep 2026</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors leading-snug">
+                El despegue de la eólica marina flotante en costas profundas
+              </h3>
+              <p class="text-slate-600 text-sm mt-3 line-clamp-3">
+                Las nuevas plataformas flotantes permiten instalar aerogeneradores a más de 100 metros de profundidad, desbloqueando el 80% del potencial eólico mundial.
+              </p>
+            </div>
+            <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+              <button onclick="openModal(1)" class="text-brand-600 font-bold text-sm hover:text-brand-700 inline-flex items-center gap-1">
+                Leer artículo completo
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="article-card group bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col" data-category="circular" data-title="plastico circular reciclaje enzimatica biotecnologia">
+          <div class="h-48 overflow-hidden relative bg-gradient-to-br from-emerald-800 to-teal-600 flex items-center justify-center p-6 text-white">
+            <svg class="w-20 h-20 text-white/30 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+            <span class="absolute top-4 left-4 bg-teal-600/90 text-white backdrop-blur-sm text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Economía Circular</span>
+            <span class="absolute bottom-4 right-4 bg-black/40 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-md">4 min lectura</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center text-xs text-slate-500 gap-2 mb-2.5">
+                <span>Ing. Marco Morales</span> • <span>Ago 2026</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors leading-snug">
+                Biorreciclaje enzimático: Descomponer plásticos en 12 horas
+              </h3>
+              <p class="text-slate-600 text-sm mt-3 line-clamp-3">
+                Científicos optimizan enzimas bacterianas capaces de desintegrar botellas de PET en sus monómeros originales con mínima energía y cero solventes tóxicos.
+              </p>
+            </div>
+            <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+              <button onclick="openModal(2)" class="text-brand-600 font-bold text-sm hover:text-brand-700 inline-flex items-center gap-1">
+                Leer artículo completo
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="article-card group bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col" data-category="ciudad" data-title="ciudades sostenibles drenaje urbano bosques verdes calor">
+          <div class="h-48 overflow-hidden relative bg-gradient-to-br from-amber-700 to-stone-800 flex items-center justify-center p-6 text-white">
+            <svg class="w-20 h-20 text-white/30 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+            <span class="absolute top-4 left-4 bg-amber-600/90 text-white backdrop-blur-sm text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Ciudades Resilientes</span>
+            <span class="absolute bottom-4 right-4 bg-black/40 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-md">5 min lectura</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center text-xs text-slate-500 gap-2 mb-2.5">
+                <span>Arq. Lucía Castillo</span> • <span>Sep 2026</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors leading-snug">
+                Ciudades Esponja: El modelo para neutralizar inundaciones
+              </h3>
+              <p class="text-slate-600 text-sm mt-3 line-clamp-3">
+                Pavimentos permeables, humedales urbanos y parques inundables reemplazan el hormigón tradicional para retener agua y mitigar las islas térmicas de calor.
+              </p>
+            </div>
+            <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+              <button onclick="openModal(3)" class="text-brand-600 font-bold text-sm hover:text-brand-700 inline-flex items-center gap-1">
+                Leer artículo completo
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="article-card group bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col" data-category="biodiversidad" data-title="biodiversidad corredores biologicos polinizadores abejas">
+          <div class="h-48 overflow-hidden relative bg-gradient-to-br from-lime-800 to-green-700 flex items-center justify-center p-6 text-white">
+            <svg class="w-20 h-20 text-white/30 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+            <span class="absolute top-4 left-4 bg-lime-600/90 text-white backdrop-blur-sm text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Biodiversidad</span>
+            <span class="absolute bottom-4 right-4 bg-black/40 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-md">7 min lectura</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center text-xs text-slate-500 gap-2 mb-2.5">
+                <span>Biol. David Saenz</span> • <span>Jul 2026</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors leading-snug">
+                Corredores biológicos: Conectando ecosistemas fragmentados
+              </h3>
+              <p class="text-slate-600 text-sm mt-3 line-clamp-3">
+                Cómo la restauración de rutas de fauna salvaje y flora nativa evita la endogamia genética y recupera poblaciones de especies amenazadas.
+              </p>
+            </div>
+            <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+              <button onclick="openModal(4)" class="text-brand-600 font-bold text-sm hover:text-brand-700 inline-flex items-center gap-1">
+                Leer artículo completo
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="article-card group bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col" data-category="energia" data-title="redes inteligentes smart grids electrificacion paneles solares">
+          <div class="h-48 overflow-hidden relative bg-gradient-to-br from-indigo-900 to-sky-700 flex items-center justify-center p-6 text-white">
+            <svg class="w-20 h-20 text-white/30 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
+            <span class="absolute top-4 left-4 bg-indigo-600/90 text-white backdrop-blur-sm text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Energía Limpia</span>
+            <span class="absolute bottom-4 right-4 bg-black/40 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-md">5 min lectura</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center text-xs text-slate-500 gap-2 mb-2.5">
+                <span>Ing. Carla Vega</span> • <span>Sep 2026</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors leading-snug">
+                Redes eléctricas inteligentes (Smart Grids) y balance en tiempo real
+              </h3>
+              <p class="text-slate-600 text-sm mt-3 line-clamp-3">
+                Inteligencia artificial aplicada a la distribución eléctrica para evitar caídas de tensión y maximizar el aprovechamiento de fuentes renovables intermitentes.
+              </p>
+            </div>
+            <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+              <button onclick="openModal(5)" class="text-brand-600 font-bold text-sm hover:text-brand-700 inline-flex items-center gap-1">
+                Leer artículo completo
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="article-card group bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col" data-category="circular" data-title="moda sostenible textil residuo cero algodon organico">
+          <div class="h-48 overflow-hidden relative bg-gradient-to-br from-rose-900 to-amber-700 flex items-center justify-center p-6 text-white">
+            <svg class="w-20 h-20 text-white/30 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" /></svg>
+            <span class="absolute top-4 left-4 bg-rose-600/90 text-white backdrop-blur-sm text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Economía Circular</span>
+            <span class="absolute bottom-4 right-4 bg-black/40 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-md">4 min lectura</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center text-xs text-slate-500 gap-2 mb-2.5">
+                <span>Valeria Noguera</span> • <span>Jun 2026</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors leading-snug">
+                El fin del 'Fast Fashion': Trazabilidad y fibras reciclables
+              </h3>
+              <p class="text-slate-600 text-sm mt-3 line-clamp-3">
+                Pasaportes digitales de producto y regulaciones internacionales obligan a la industria textil a garantizar materiales reciclables y salarios justos.
+              </p>
+            </div>
+            <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+              <button onclick="openModal(6)" class="text-brand-600 font-bold text-sm hover:text-brand-700 inline-flex items-center gap-1">
+                Leer artículo completo
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- No Results State -->
+      <div id="noResults" class="hidden text-center py-16">
+        <div class="w-16 h-16 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        </div>
+        <h3 class="text-lg font-bold text-slate-800">No se encontraron artículos</h3>
+        <p class="text-slate-500 text-sm mt-1">Prueba con otras palabras o selecciona otra categoría.</p>
+        <button id="resetFilterBtn" class="mt-4 px-4 py-2 rounded-xl text-sm font-semibold bg-brand-600 text-white hover:bg-brand-700 transition">Ver todos</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Calculator Section -->
+  <section id="calculadora" class="py-20 bg-white border-y border-slate-200 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-600">Herramienta Interactiva</span>
+        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Estima tu Huella de Carbono Diaria</h2>
+        <p class="text-slate-600 text-sm mt-2">Ajusta los controles según tus hábitos diarios y conoce tu impacto en kg de CO₂ equivalente.</p>
+      </div>
+
+      <div class="bg-slate-50 rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Controls -->
+          <div class="space-y-6">
+            <!-- Transport slider -->
+            <div>
+              <div class="flex justify-between text-sm font-semibold text-slate-700 mb-2">
+                <label for="transportRange">Transporte en coche (km/día)</label>
+                <span id="transportVal" class="text-brand-600 font-bold">25 km</span>
+              </div>
+              <input type="range" id="transportRange" min="0" max="100" value="25" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brand-600">
+              <span class="text-xs text-slate-400">0 km (bici/caminar) hasta 100 km</span>
+            </div>
+
+            <!-- Diet selector -->
+            <div>
+              <label class="block text-sm font-semibold text-slate-700 mb-2">Tipo de alimentación predominante</label>
+              <select id="dietSelect" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                <option value="1.5">Vegetariana / Vegana (Bajo impacto)</option>
+                <option value="2.8" selected>Mediterránea balanceada (Impacto medio)</option>
+                <option value="4.8">Alto consumo de carnes rojas (Alto impacto)</option>
+              </select>
+            </div>
+
+            <!-- Electricity slider -->
+            <div>
+              <div class="flex justify-between text-sm font-semibold text-slate-700 mb-2">
+                <label for="energyRange">Consumo eléctrico hogar (horas AC/calefacción)</label>
+                <span id="energyVal" class="text-brand-600 font-bold">4 hrs</span>
+              </div>
+              <input type="range" id="energyRange" min="0" max="16" value="4" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brand-600">
+              <span class="text-xs text-slate-400">Eficiencia pasiva a uso intensivo</span>
+            </div>
+          </div>
+
+          <!-- Result box -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200/80 flex flex-col justify-between shadow-sm">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Resultado estimado</span>
+              <div class="mt-2 flex items-baseline gap-2">
+                <span id="totalCo2" class="text-5xl font-black text-brand-600">6.8</span>
+                <span class="text-lg font-bold text-slate-600">kg CO₂e / día</span>
+              </div>
+              
+              <!-- Indicator status -->
+              <div id="statusBadge" class="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Nivel: Moderado y manejable</span>
+              </div>
+
+              <p id="recommendationText" class="text-xs text-slate-500 mt-4 leading-relaxed">
+                Tu huella se encuentra dentro del promedio urbano. Si sustituyes 10 km de trayectos por transporte público o bicicleta, reducirías hasta un 25% semanal.
+              </p>
+            </div>
+
+            <div class="pt-6 border-t border-slate-100 mt-4">
+              <button onclick="shareCalculatedImpact()" class="w-full py-2.5 px-4 rounded-xl border border-brand-500 text-brand-600 hover:bg-brand-50 text-sm font-semibold transition">
+                Copiar resumen de mi impacto
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (Accordion) -->
+  <section id="preguntas" class="py-20 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-600">Dudas habituales</span>
+        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Preguntas Frecuentes</h2>
+        <p class="text-slate-600 text-sm mt-2">Respuestas claras y basadas en evidencia científica a las preguntas más comunes sobre ecología y sostenibilidad.</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Item 1 -->
+        <div class="faq-item rounded-2xl bg-white border border-slate-200 overflow-hidden transition-all duration-200">
+          <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between font-bold text-slate-900 hover:text-brand-600 focus:outline-none">
+            <span>¿Cuál es la diferencia real entre reciclaje y economía circular?</span>
+            <svg class="faq-arrow w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
+            El reciclaje es solo el último eslabón de la cadena de residuos. La economía circular rediseña los productos desde su origen para que los materiales duren, se reparen con facilidad, se reutilicen en ciclos continuos y nunca lleguen a convertirse en desecho.
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="faq-item rounded-2xl bg-white border border-slate-200 overflow-hidden transition-all duration-200">
+          <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between font-bold text-slate-900 hover:text-brand-600 focus:outline-none">
+            <span>¿Es viable que un país funcione al 100% con energías renovables?</span>
+            <svg class="faq-arrow w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
+            Sí. Países como Costa Rica, Islandia y Albania ya operan cerca del 98%-100% de electricidad renovable mediante combinaciones de hidroeléctrica, geotermia, eólica y solar. El desafío para economías industriales de gran escala radica en las baterías de respaldo e interconexión inteligente.
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="faq-item rounded-2xl bg-white border border-slate-200 overflow-hidden transition-all duration-200">
+          <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between font-bold text-slate-900 hover:text-brand-600 focus:outline-none">
+            <span>¿Qué es la huella de carbono y cómo se mide?</span>
+            <svg class="faq-arrow w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
+            Es la suma total de emisiones de gases de efecto invernadero (GEI) causadas directa o indirectamente por una persona, organización o producto, expresadas en toneladas o kilogramos equivalentes de CO₂ según los estándares del GHG Protocol.
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="faq-item rounded-2xl bg-white border border-slate-200 overflow-hidden transition-all duration-200">
+          <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between font-bold text-slate-900 hover:text-brand-600 focus:outline-none">
+            <span>¿Cómo puedo contribuir si vivo en un departamento pequeño?</span>
+            <svg class="faq-arrow w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
+            Priorizando el transporte activo o colectivo, reduciendo el desperdicio de alimentos, empleando electrodomésticos con etiqueta energética A+++, optando por proveedores de energía certificada verde y compostando con vermicomposteras herméticas para interiores.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section id="boletin" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="bg-gradient-to-r from-brand-900 to-emerald-950 rounded-3xl p-8 sm:p-14 border border-brand-800/50 shadow-2xl">
+        <div class="max-w-2xl mx-auto text-center space-y-4">
+          <span class="px-3.5 py-1.5 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold uppercase tracking-wider border border-brand-500/30">Comunidad EcoSphere</span>
+          <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-white">Recibe nuestro informe semanal gratuito</h2>
+          <p class="text-slate-300 text-sm sm:text-base">
+            Cada jueves sintetizamos los avances tecnológicos más prometedores, normativas internacionales y buenas prácticas para un futuro neutro en emisiones.
+          </p>
+
+          <form id="newsletterForm" class="pt-4 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input type="email" id="emailSubscriber" required placeholder="tu.correo@ejemplo.com" class="px-4 py-3.5 rounded-xl bg-white/10 text-white placeholder-slate-400 border border-white/20 focus:outline-none focus:ring-2 focus:ring-brand-400 flex-1 text-sm">
+            <button type="submit" class="px-6 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 font-bold text-sm transition-all duration-200 hover:shadow-lg hover:shadow-brand-500/25">
+              Unirme
+            </button>
+          </form>
+
+          <p class="text-xs text-slate-400">Sin spam. Puedes cancelar tu suscripción en cualquier momento con 1 clic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 text-slate-400 text-sm border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+        
+        <!-- Brand col -->
+        <div class="md:col-span-1 space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="w-9 h-9 rounded-xl bg-brand-600 flex items-center justify-center text-white font-bold">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            </div>
+            <span class="text-xl font-bold text-white tracking-tight">Eco<span class="text-brand-500">Sphere</span></span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Plataforma informativa independiente dedicada a la difusión del desarrollo sostenible y tecnologías regenerativas.
+          </p>
+        </div>
+
+        <!-- Links 1 -->
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Temáticas</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#articulos" class="hover:text-brand-400 transition">Energías Renovables</a></li>
+            <li><a href="#articulos" class="hover:text-brand-400 transition">Biorreciclaje & Materiales</a></li>
+            <li><a href="#articulos" class="hover:text-brand-400 transition">Movilidad Urbana</a></li>
+            <li><a href="#articulos" class="hover:text-brand-400 transition">Preservación Marina</a></li>
+          </ul>
+        </div>
+
+        <!-- Links 2 -->
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Recursos</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#calculadora" class="hover:text-brand-400 transition">Calculadora de Emisiones</a></li>
+            <li><a href="#indicadores" class="hover:text-brand-400 transition">Observatorio de Datos</a></li>
+            <li><a href="#preguntas" class="hover:text-brand-400 transition">Guías Ciudadanas</a></li>
+            <li><a href="#" class="hover:text-brand-400 transition">Metodología de Reportes</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal & Social -->
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Compromiso Abierto</h4>
+          <p class="text-xs text-slate-400 mb-4">Contenido licenciado bajo Creative Commons BY 4.0. Libre de reproducir citando la fuente.</p>
+          <div class="flex space-x-3 text-slate-400">
+            <span class="text-xs bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg">Eco-Friendly Hosting</span>
+            <span class="text-xs bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg">100% Green Energy</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-10 mt-10 border-t border-slate-900 text-center text-xs text-slate-500">
+        © 2026 EcoSphere Portal. Diseñado con estándares web modernos y accesibles.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Article Reader Modal (Accessible popup) -->
+  <div id="articleModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative">
+      <!-- Close button -->
+      <button onclick="closeModal()" class="absolute top-6 right-6 p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+
+      <!-- Modal Content Dynamic -->
+      <div id="modalContent" class="space-y-4">
+        <!-- Content injected by JS -->
+      </div>
+
+      <div class="mt-8 pt-4 border-t border-slate-100 flex justify-end">
+        <button onclick="closeModal()" class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold transition">
+          Cerrar lectura
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Box -->
+  <div id="toastBox" class="fixed bottom-6 right-6 z-50 max-w-sm bg-slate-900 text-white p-4 rounded-2xl shadow-2xl border border-slate-700 flex items-start gap-3 translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="w-7 h-7 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center shrink-0">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+    </div>
+    <div>
+      <h4 id="toastTitle" class="text-sm font-bold text-white">Notificación</h4>
+      <p id="toastMessage" class="text-xs text-slate-300 mt-0.5">Mensaje descriptivo.</p>
+    </div>
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    // Mock Data for Detailed Article Reading
+    const articlesData = {
+      1: {
+        category: "Energía Limpia",
+        title: "El despegue de la eólica marina flotante en costas profundas",
+        author: "Dra. Elena Ramos • Especialista en Ingeniería Oceánica",
+        date: "Septiembre 2026",
+        content: `
+          <p class="text-slate-600 leading-relaxed">Los parques eólicos offshore tradicionales requerían anclajes rígidos sobre el lecho marino a profundidades menores de 50 metros. Sin embargo, las costas más ventosas del planeta —como las del Pacífico, el Atlántico Norte y el Mar del Norte meridional— descienden abruptamente a cientos de metros.</p>
+          <h4 class="font-bold text-slate-900 text-lg mt-4 mb-2">Plataformas Semisumergibles y Cables Dinámicos</h4>
+          <p class="text-slate-600 leading-relaxed">Mediante estructuras semisumergibles inspiradas en las plataformas petrolíferas reconvertidas, las nuevas turbinas de hasta 18 megavatios operan sobre flotadores de hormigón ecológico y líneas de amarre de fibra sintética de alta resistencia.</p>
+          <div class="p-4 bg-brand-50 rounded-2xl border border-brand-200 text-brand-900 text-sm my-4">
+            <strong>Impacto proyectado:</strong> Se estima que la capacidad marina flotante superará los 60 GW acumulados antes de 2035, reduciendo el costo nivelado de la energía (LCOE) a menos de 45 €/MWh.
+          </div>
+          <p class="text-slate-600 leading-relaxed">Además, los diseños actuales incorporan arrecifes artificiales en las bases flotantes para fomentar la proliferación de moluscos y peces locales, convirtiendo las granjas energéticas en zonas de veda y protección marina.</p>
+        `
+      },
+      2: {
+        category: "Economía Circular",
+        title: "Biorreciclaje enzimático: Descomponer plásticos en 12 horas",
+        author: "Ing. Marco Morales • Investigador en Biotecnología de Materiales",
+        date: "Agosto 2026",
+        content: `
+          <p class="text-slate-600 leading-relaxed">El reciclaje termomecánico convencional degrada las cadenas poliméricas, limitando el número de veces que una botella puede volver a convertirse en envase alimentario. El biorreciclaje enzimático rompe este ciclo vicioso.</p>
+          <h4 class="font-bold text-slate-900 text-lg mt-4 mb-2">Enzimas PETasa mutantes de alta cinética</h4>
+          <p class="text-slate-600 leading-relaxed">Mediante diseño computacional de proteínas asistido por redes neuronales, se han obtenido variantes enzimáticas que operan a 65°C, hidrolizando tereftalato de polietileno (PET) sin generar microplásticos dispersos ni emisiones gaseosas.</p>
+          <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-200 text-emerald-900 text-sm my-4">
+            <strong>Ventaja competitiva:</strong> El producto resultante son monómeros puros (ácido tereftálico y etilenglicol) equivalentes en un 100% a la materia prima virgen de origen fósil.
+          </div>
+        `
+      },
+      3: {
+        category: "Ciudades Resilientes",
+        title: "Ciudades Esponja: El modelo para neutralizar inundaciones",
+        author: "Arq. Lucía Castillo • Urbanista y Consultora de Resiliencia",
+        date: "Septiembre 2026",
+        content: `
+          <p class="text-slate-600 leading-relaxed">El sellado asfáltico acelerado de las últimas décadas convirtió los núcleos urbanos en toboganes impermeables. Ante las lluvias torrenciales provocadas por el cambio climático, la ingeniería clásica de tuberías subterráneas resulta insuficiente y prohibitiva.</p>
+          <h4 class="font-bold text-slate-900 text-lg mt-4 mb-2">Humedales escalonados y pavimentos vivos</h4>
+          <p class="text-slate-600 leading-relaxed">El concepto de 'Ciudad Esponja' propone infiltrar, retener y purificar el agua donde cae. Las plazas cívicas se diseñan como anfiteatros inundables que albergan agua durante tormentas extraordinarias y se secan sin daño en 24 horas.</p>
+          <p class="text-slate-600 leading-relaxed mt-2">Esta agua recarga los acuíferos subterráneos locales y alimenta la vegetación que reduce la temperatura ambiente hasta en 3.5°C en verano.</p>
+        `
+      },
+      4: {
+        category: "Biodiversidad",
+        title: "Corredores biológicos: Conectando ecosistemas fragmentados",
+        author: "Biol. David Saenz • Conservacionista",
+        date: "Julio 2026",
+        content: `
+          <p class="text-slate-600 leading-relaxed">Las autopistas, campos de monocultivo y desarrollos residenciales han convertido los hábitats silvestres en islas aisladas donde las poblaciones sufren de empobrecimiento genético y alta mortalidad por atropellos.</p>
+          <h4 class="font-bold text-slate-900 text-lg mt-4 mb-2">Pasos superiores e infraestructura verde continua</h4>
+          <p class="text-slate-600 leading-relaxed">Los pasos ecológicos con vegetación autóctona permiten el cruce seguro de grandes mamíferos y polinizadores. Estudios recientes demuestran un incremento del 40% en la diversidad genética en poblaciones de fauna conectadas por estas franjas verdes.</p>
+        `
+      },
+      5: {
+        category: "Energía Limpia",
+        title: "Redes eléctricas inteligentes (Smart Grids) y balance en tiempo real",
+        author: "Ing. Carla Vega • Automatización y Redes",
+        date: "Septiembre 2026",
+        content: `
+          <p class="text-slate-600 leading-relaxed">La integración masiva de paneles solares residenciales y coches eléctricos transforma el flujo unidireccional de la electricidad en una red bidireccional compleja. Las Smart Grids son el sistema nervioso que equilibra este nuevo paradigma.</p>
+          <p class="text-slate-600 leading-relaxed mt-2">Mediante algoritmos de aprendizaje reforzado, la red redistribuye excedentes instantáneos hacia sistemas de bombeo hidroeléctrico o centros de recarga vehicular justo en los minutos de máxima radiación solar.</p>
+        `
+      },
+      6: {
+        category: "Economía Circular",
+        title: "El fin del 'Fast Fashion': Trazabilidad y fibras reciclables",
+        author: "Valeria Noguera • Consultora de Moda Circular",
+        date: "Junio 2026",
+        content: `
+          <p class="text-slate-600 leading-relaxed">Cada segundo se quema o entierra en vertederos el equivalente a un camión de ropa usada. La nueva directiva de ecodiseño exige pasaportes digitales con códigos QR que revelan la composición exacta de cada hilo.</p>
+          <p class="text-slate-600 leading-relaxed mt-2">Marcas pioneras están eliminando mezclas incompatibles (como algodón con elastano superior al 2%) para permitir el desmontaje químico directo y revalorizar las prendas al final de su ciclo de vida.</p>
+        `
+      }
+    };
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isExpanded = !mobileMenu.classList.contains('hidden');
+      if (isExpanded) {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      } else {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
+
+    // Search and Category Filter System
+    const searchInput = document.getElementById('searchInput');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const articleCards = document.querySelectorAll('.article-card');
+    const noResults = document.getElementById('noResults');
+    const resetFilterBtn = document.getElementById('resetFilterBtn');
+
+    let currentCategory = 'all';
+    let currentSearchQuery = '';
+
+    function filterArticles() {
+      let visibleCount = 0;
+
+      articleCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        const cardTitle = card.getAttribute('data-title').toLowerCase();
+        const cardText = card.textContent.toLowerCase();
+
+        const matchesCategory = (currentCategory === 'all' || cardCategory === currentCategory);
+        const matchesSearch = currentSearchQuery === '' || cardTitle.includes(currentSearchQuery) || cardText.includes(currentSearchQuery);
+
+        if (matchesCategory && matchesSearch) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+    }
+
+    // Category Buttons Click
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Reset styles
+        filterButtons.forEach(b => {
+          b.className = 'filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition';
+        });
+        // Active style
+        btn.className = 'filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-brand-600 text-white shadow-sm transition';
+        currentCategory = btn.getAttribute('data-cat');
+        filterArticles();
+      });
+    });
+
+    // Search input listener
+    searchInput.addEventListener('input', (e) => {
+      currentSearchQuery = e.target.value.toLowerCase().trim();
+      filterArticles();
+    });
+
+    resetFilterBtn.addEventListener('click', () => {
+      currentSearchQuery = '';
+      currentCategory = 'all';
+      searchInput.value = '';
+      filterButtons[0].click();
+    });
+
+    // Footprint Calculator Logic
+    const transportRange = document.getElementById('transportRange');
+    const transportVal = document.getElementById('transportVal');
+    const dietSelect = document.getElementById('dietSelect');
+    const energyRange = document.getElementById('energyRange');
+    const energyVal = document.getElementById('energyVal');
+    const totalCo2 = document.getElementById('totalCo2');
+    const statusBadge = document.getElementById('statusBadge');
+    const recommendationText = document.getElementById('recommendationText');
+
+    function calculateFootprint() {
+      const km = parseFloat(transportRange.value);
+      const dietFactor = parseFloat(dietSelect.value);
+      const hoursAc = parseFloat(energyRange.value);
+
+      transportVal.textContent = `${km} km`;
+      energyVal.textContent = `${hoursAc} hrs`;
+
+      // Simplified emission factors (kg CO2e)
+      // Car: ~0.15 kg CO2 / km
+      // AC/Heat: ~0.45 kg CO2 / hour
+      // Diet: constant per day
+      const transportCo2 = km * 0.15;
+      const energyCo2 = hoursAc * 0.45;
+      const dietCo2 = dietFactor;
+
+      const total = (transportCo2 + energyCo2 + dietCo2).toFixed(1);
+      totalCo2.textContent = total;
+
+      // Badges
+      if (total < 5.0) {
+        statusBadge.className = 'mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800';
+        statusBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-500"></span><span>Nivel: Huella Baja y Ejemplar</span>';
+        recommendationText.textContent = '¡Excelente! Tus hábitos generan una emisión significativamente inferior al promedio nacional.';
+      } else if (total <= 12.0) {
+        statusBadge.className = 'mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800';
+        statusBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-amber-500"></span><span>Nivel: Moderado y Promedio</span>';
+        recommendationText.textContent = 'Tu huella se encuentra dentro del rango habitual urbano. Caminar en trayectos cortos o usar termostatos programables te ayudará a reducirla más.';
+      } else {
+        statusBadge.className = 'mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-rose-100 text-rose-800';
+        statusBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-rose-500"></span><span>Nivel: Huella Elevada</span>';
+        recommendationText.textContent = 'Tu estimación supera el promedio sostenible. Reducir viajes individuales en combustión o alternar comidas basadas en vegetales marcaría una gran diferencia.';
+      }
+    }
+
+    transportRange.addEventListener('input', calculateFootprint);
+    dietSelect.addEventListener('change', calculateFootprint);
+    energyRange.addEventListener('input', calculateFootprint);
+
+    // Copy impact to clipboard safely
+    function shareCalculatedImpact() {
+      const co2 = totalCo2.textContent;
+      const textToCopy = `Mi huella de carbono diaria estimada es de ${co2} kg CO2e calculada en el portal EcoSphere. ¡Súmate a la sostenibilidad!`;
+      
+      const tempInput = document.createElement('textarea');
+      tempInput.value = textToCopy;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+
+      showToast("Copiado al portapapeles", "Puedes pegar tu resultado en tus redes o notas.");
+    }
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const toggle = item.querySelector('.faq-toggle');
+      const content = item.querySelector('.faq-content');
+      const arrow = item.querySelector('.faq-arrow');
+
+      toggle.addEventListener('click', () => {
+        const isOpen = !content.classList.contains('hidden');
+        
+        // Close others
+        faqItems.forEach(otherItem => {
+          otherItem.querySelector('.faq-content').classList.add('hidden');
+          otherItem.querySelector('.faq-arrow').classList.remove('rotate-180');
+        });
+
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          arrow.classList.add('rotate-180');
+        }
+      });
+    });
+
+    // Newsletter Submit Event
+    const newsletterForm = document.getElementById('newsletterForm');
+    const emailSubscriber = document.getElementById('emailSubscriber');
+
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = emailSubscriber.value.trim();
+      if (email) {
+        showToast("¡Suscripción confirmada!", `Te hemos enviado una bienvenida a ${email}`);
+        newsletterForm.reset();
+      }
+    });
+
+    // Modal Details Functions
+    const articleModal = document.getElementById('articleModal');
+    const modalContent = document.getElementById('modalContent');
+
+    function openModal(id) {
+      const data = articlesData[id];
+      if (!data) return;
+
+      modalContent.innerHTML = `
+        <span class="inline-block px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider mb-2">
+          ${data.category}
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
+          ${data.title}
+        </h2>
+        <div class="text-xs text-slate-500 pb-3 border-b border-slate-100 flex items-center justify-between">
+          <span>${data.author}</span>
+          <span>${data.date}</span>
+        </div>
+        <div class="text-slate-700 text-sm space-y-3 pt-2">
+          ${data.content}
+        </div>
+      `;
+
+      articleModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      articleModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal on click outside
+    articleModal.addEventListener('click', (e) => {
+      if (e.target === articleModal) {
+        closeModal();
+      }
+    });
+
+    // Esc key close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !articleModal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    // Toast Notification helper
+    function showToast(title, message) {
+      const toastBox = document.getElementById('toastBox');
+      const toastTitle = document.getElementById('toastTitle');
+      const toastMessage = document.getElementById('toastMessage');
+
+      toastTitle.textContent = title;
+      toastMessage.textContent = message;
+
+      toastBox.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+      toastBox.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toastBox.classList.remove('translate-y-0', 'opacity-100');
+        toastBox.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
